@@ -3,8 +3,22 @@
 <head>
   <meta http-equiv="content-type" content="text/html; charset=utf-8">
   <title>Soham's Resume</title>
+  <script>
+    function checkIframeLoaded() {
+      var iframe = document.getElementById('resumeIframe');
+      if (!iframe.contentWindow || !iframe.contentWindow.document || iframe.contentWindow.document.body.innerHTML.trim() === '') {
+        // Reload the page after 5 seconds if the iframe content is not loaded
+        setTimeout(function() {
+          location.reload();
+        }, 1000);
+      }
+    }
+
+    // Trigger the checkIframeLoaded function after the page is loaded
+    window.onload = checkIframeLoaded;
+  </script>
 </head>
   <body style="width:100%; height:100%; margin:0;">
-    <iframe src="https://docs.google.com/gview?url=https://github.com/SohamNag/resume/raw/main/Soham_Nag_Resume.pdf&embedded=true" style="width:100%; height:100%;" frameborder="0"></iframe>
+    <iframe id="resumeIframe" src="https://docs.google.com/gview?url=https://github.com/SohamNag/resume/raw/main/Soham_Nag_Resume.pdf&embedded=true" style="width:100%; height:100%;" frameborder="0"></iframe>
   </body>
 </html>
